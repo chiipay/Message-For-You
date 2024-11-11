@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <link rel="icon" href="image/website logo.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Karantina&display=swap" rel="stylesheet">
+	
+    <style>
+        body {
+            background-color: #FFBC26;
+            background-image: url('image/congrats.gif');
+			background-size: cover; 
+            background-repeat: no-repeat;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            font-family: 'Karantina', sans-serif;
+            font-size: 85px;
+            color: #FFFFFF;
+            letter-spacing: 0.20em;
+        }
+        .image {
+            width: 650px;
+            margin-bottom: -20px;
+			margin-right: 70px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 250%;
+            max-width: 1750px;
+        }
+        .form-container {
+            padding-left: 30px;
+            margin-bottom: -150px;
+            width: 350px;
+        }
+        .form-container label {
+            display: block;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin: 10px 0 5px;
+        }
+        .input-display, .message-display {
+            width: 184%;
+            padding: 14px;
+            margin: 5px 0 28px;
+            border: 1px solid #FFD67A;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            color: #FFFFFF;
+            background-color: #FFD67A;
+            overflow: auto;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        .message-display {
+            height: 200px;
+        }
+		
+		@media (max-width: 768px) {
+            .header {
+                font-size: 48px;
+                top: 30px;
+                left: 40px;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .form-container {
+                width: 90%;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+            .input-display, .message-display {
+                width: 100%;
+            }
+            .image {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 36px;
+                top: 20px;
+                left: 20px;
+            }
+            .form-container label {
+                font-size: 16px;
+            }
+            .input-display, .message-display {
+                font-size: 16px;
+                padding: 10px;
+            }
+            .message-display {
+                height: 150px;
+            }
+        }
+		
+    </style>
+</head>
+<body>
+
+    <div class="header">CONGRATULATIONS</div>
+    <div class="container">
+        <div class="form-container">
+            <label for="to">To</label>
+            <div id="to" class="input-display"></div>
+            <label for="message">Message</label>
+            <div id="message" class="message-display"></div>
+            <label for="from">From</label>
+            <div id="from" class="input-display"></div>
+        </div>
+        <div class="image">
+            <img src="image/congratulating.png" alt="image Illustration" class="image">
+        </div>
+    </div>
+	
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                to: params.get('to'),
+                message: params.get('message'),
+                from: params.get('from')
+            };
+        }
+        window.onload = function() {
+            const { to, message, from } = getQueryParams();
+            document.getElementById("to").textContent = decodeURIComponent(to);
+            document.getElementById("message").textContent = decodeURIComponent(message);
+            document.getElementById("from").textContent = decodeURIComponent(from);
+            if (history.replaceState) {
+                const cleanURL = `${window.location.origin}${window.location.pathname}`;
+                history.replaceState(null, "", cleanURL);
+            }
+        };
+    </script>
+	
+</body>
+</html>

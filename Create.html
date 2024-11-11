@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="icon" type="image/x-icon" href="image/website logo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #65BEE7; 
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 20px; 
+        }
+
+        .header h1 {
+            font-size: 54px;
+            margin-bottom: 94px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 35px;
+            justify-content: center; 
+        }
+
+        .category-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 180px; 
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            color: #0C9BDD;
+            opacity: 0.95;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            height: 100px;
+        }
+
+        .category-button:hover {
+            background-color: #CDEAF6;
+        }
+
+        .category-button img {
+            width: 100px;
+            height: 100px;
+            margin-right: 15px;
+        }
+
+        .category-button span {
+            letter-spacing: 0.15em;
+        }
+
+        .menu-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .menu-wrapper:hover .dropdown {
+            display: block;
+        }
+
+        .menu-button {
+            color: #FFFFFF;
+            font-size: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #0C9BDD;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .dropdown a {
+            display: block;
+            color: #FFFFFF;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .dropdown a:hover {
+            background-color: #005bb5;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+                margin-bottom: 50px;
+            }
+
+            .button-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .category-button {
+                padding: 10px 20px;
+                font-size: 20px;
+            }
+
+            .category-button img {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .category-button {
+                padding: 10px 10px;
+                font-size: 18px;
+            }
+
+            .category-button img {
+                width: 40px;
+                height: 40px;
+                margin-right: 8px;
+            }
+        }
+		
+    </style>
+</head>
+<body>
+
+    <div class="menu-wrapper">
+        <div class="menu-button">☰</div>
+        <div class="dropdown">
+            <a href="Homepage.html">Homepage</a>
+            <a href="About.html">About</a>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>Choose Categories</h1>
+        <div class="button-grid">
+            <a href="BForm.html" class="category-button">
+                <img src="image/birthday.png" alt="Birthday Icon">
+                <span>BIRTHDAY</span>
+            </a>
+            <a href="CGForm.html" class="category-button">
+                <img src="image/congratulating.png" alt="Congratulating Icon">
+                <span>CONGRATULATING</span>
+            </a>
+            <a href="VForm.html" class="category-button">
+                <img src="image/valentine.png" alt="Valentine Icon">
+                <span>VALENTINE</span>
+            </a>
+            <a href="HForm.html" class="category-button">
+                <img src="image/halloween.png" alt="Halloween Icon">
+                <span>HALLOWEEN</span>
+            </a>
+            <a href="CMForm.html" class="category-button">
+                <img src="image/christmas.png" alt="Christmas Icon">
+                <span>CHRISTMAS</span>
+            </a>
+            <a href="FForm.html" class="category-button">
+                <img src="image/farewell.png" alt="Farewell Icon">
+                <span>FAREWELL</span>
+            </a>
+        </div>
+    </div>
+	
+</body>
+</html>
+

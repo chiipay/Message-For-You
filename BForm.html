@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Birthday Card</title>
+    <link rel="icon" type="image/x-icon" href="image/website logo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	
+    <style>
+        body {
+            background-color: #EDAE24; 
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image {
+            width: 480px;
+            height: auto;
+            margin-top: 250px;
+        }
+        .form-container {
+            padding: 150px;
+            width: 300px;
+            position: relative;
+        }
+        .form-container label {
+            display: block;
+            font-weight: 400;
+            color: #000000;
+            margin: 10px 0 5px;
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 180%;
+            padding: 20px;
+            margin: 5px 0 28px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-container textarea {
+            resize: none;
+            height: 80px;
+        }
+        .form-container button {
+            width: 195%;
+            padding: 15px;
+            background-color: #CC9900;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-container button:hover {
+            background-color: #B8860B;
+        }
+        #linkContainer {
+            display: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+            white-space: nowrap; 
+			position: absolute; 
+            bottom: 80px; 
+            left: 50; 
+        }
+        #linkContainer a {
+            color: #B8860B;
+            text-decoration: underline;
+        }
+		.menu-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .menu-wrapper:hover .dropdown {
+            display: block;
+        }
+        .menu-button {
+            color: #FFFFFF;
+            font-size: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #CC9900;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+        .dropdown a {
+            display: block;
+            color: #FFFFFF;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .dropdown a:hover {
+            background-color: #B8860B;
+        }
+		
+		@media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .image {
+                width: 80%;
+                margin-top: 20px;
+            }
+            .form-container {
+                padding: 20px;
+                width: 90%;
+            }
+            .form-container input,
+            .form-container textarea,
+            .form-container button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 10px;
+            }
+            .form-container label {
+                font-size: 14px;
+            }
+            .form-container input,
+            .form-container textarea {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .form-container button {
+                font-size: 14px;
+                padding: 10px;
+            }
+            #linkContainer {
+                font-size: 14px;
+            }
+        }
+		
+    </style>
+</head>
+<body>
+
+	    <div class="menu-wrapper">
+        <div class="menu-button">☰</div>
+        <div class="dropdown">
+            <a href="Homepage.html">Homepage</a>
+            <a href="About.html">About</a>
+        </div>
+    </div>
+	
+    <div class="container">
+        <img src="image/birthday.png" alt="image Illustration" class="image">
+        <div class="form-container">
+            <label for="to">To</label>
+            <input type="text" id="to" placeholder="Birthday Celebrant Name" />
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Message"></textarea>
+            <label for="from">From</label>
+            <input type="text" id="from" placeholder="Your Name" />
+            <button onclick="generateLink()">Save</button>
+            <p id="linkContainer">Copy this link: <a href="#" id="resultLink" target="_blank"></a></p>
+        </div>
+    </div>
+    
+   <script>
+    function generateLink() {
+        const to = encodeURIComponent(document.getElementById("to").value);
+        const message = encodeURIComponent(document.getElementById("message").value);
+        const from = encodeURIComponent(document.getElementById("from").value);
+
+        const linkUrl = `BCard.html?to=${to}&from=${from}&message=${message}`;
+
+        const linkContainer = document.getElementById("linkContainer");
+        const resultLink = document.getElementById("resultLink");
+
+        resultLink.href = linkUrl;
+        resultLink.textContent = "Your Birthday Card";
+
+        linkContainer.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
+
+
+
